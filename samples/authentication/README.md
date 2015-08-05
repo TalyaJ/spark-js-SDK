@@ -3,7 +3,7 @@ Authentication Samples
 ## Introduction
 This sample code demonstrates Spark's login flows through _Implicit_ and _Explicit (Server)_ login: App and user authentication based on the OAuth2 protocol.
 
-The purpose of the samples provided here is to show you how you can acquire access and guest tokens in order to make authorized calls to Spark API.
+The purpose of the samples provided here is to show you how you can acquire access and guest tokens in order to make authorized calls to the Spark API.
 
 ## Prerequisites
 * A registered app on the [Spark Developers Portal](https://spark.autodesk.com/developers). For more information see the [tutorial](https://spark.autodesk.com/developers/reference/introduction/tutorials/register-an-app).
@@ -18,10 +18,10 @@ The purpose of the samples provided here is to show you how you can acquire acce
 
 ##Implicit Login flow
 The implicit flow is a simplified flow in the sense that it doesn't require the usage of APP_SECRET to perform authentication,
-and therefore doesn't require to implement a server where you can "hide" your APP_SECRET from prying eyes.
+and therefore doesn't require you to implement a server where you can "hide" your APP_SECRET from prying eyes.
 
 Implicit login provides you with an access token that expires after 2 hours without the ability to refresh (renew) the token. To be able
-to refresh the token for longer times you will have to implement the Explicit flow (see below)
+to refresh the token for a longer period of time, you will need to implement the Explicit flow. (See below)
 
 ### Quick Start
 #### Step 1 - Initialize Client
@@ -122,8 +122,8 @@ ADSKSpark.Client.completeLogin(false).then(function (token) {
 
 
 ##Explicit Login flow
-This explicit flow enables you to get an access token and to be able to prolong it through the refresh token mechanism.
-This flow requires an APP_SECRET and therefore we strongly encourage you implement a server that holds the APP_SECRET and implements
+This explicit flow enables you to get an access token and prolong its duration through the refresh token mechanism.
+This flow requires an APP_SECRET and therefore we strongly encourage you to implement a server that holds the APP_SECRET and implements
 the Explicit flow. This repository has a nodejs sample server implementation that you can use for your convenience.
 
 ### Quick Start
@@ -282,7 +282,7 @@ ADSKSpark.Client.initialize('<your-app-key>',options);
 <b>isProduction</b> - isSandbox or isProduction, this parameter initializes the client for the desired environment.<br>
 <i>Note!</i>  Each environment uses a different APP_KEY.
 
-<b>redirectUri</b> - The redirect URI to which the access_token is returned.
+<b>redirectUri</b> - The redirect URI to where the access_token is returned.
 The redirect URI must match the callback URL defined during app registration.
 If no redirectUri is entered, the access token is retured to the page that loaded the login dialog.
 
